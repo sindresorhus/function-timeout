@@ -1,12 +1,11 @@
 import vm from 'node:vm';
 
 export default function functionTimeout(function_, {timeout} = {}) {
-	const script = new vm.Script('returnValue = function_(...arguments_)');
+	const script = new vm.Script('returnValue = function_()');
 
 	const wrappedFunction = (...arguments_) => {
 		const context = {
-			function_,
-			arguments_,
+			function_: () => function_(...arguments_),
 		};
 
 		script.runInNewContext(context, {timeout});

@@ -9,3 +9,7 @@ export default function functionTimeout(function_) {
 
 	return wrappedFunction;
 }
+
+export function isTimeoutError() {
+	return false;
+}
