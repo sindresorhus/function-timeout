@@ -1,6 +1,6 @@
 {
 	"name": "function-timeout",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "Make a synchronous function have a timeout",
 	"license": "MIT",
 	"repository": "sindresorhus/function-timeout",
