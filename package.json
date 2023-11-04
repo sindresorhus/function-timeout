@@ -17,7 +17,7 @@
 		"default": "./browser.js"
 	},
 	"engines": {
-		"node": ">=14.16"
+		"node": ">=18"
 	},
 	"scripts": {
 		"test": "xo && ava && tsd"
@@ -43,13 +43,15 @@
 		"func",
 		"fn",
 		"script",
-		"execute"
+		"execute",
+		"halt",
+		"termination"
 	],
 	"devDependencies": {
-		"ava": "^4.3.0",
+		"ava": "^5.3.1",
 		"in-range": "^3.0.0",
-		"time-span": "^5.0.0",
-		"tsd": "^0.20.0",
-		"xo": "^0.49.0"
+		"time-span": "^5.1.0",
+		"tsd": "^0.29.0",
+		"xo": "^0.56.0"
 	}
 }
