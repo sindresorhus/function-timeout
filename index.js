@@ -1,15 +1,14 @@
 import vm from 'node:vm';
 
-export default function functionTimeout(function_, {timeout} = {}) {
-	const script = new vm.Script('returnValue = function_()');
+const script = new vm.Script('returnValue = functionToRun()');
 
+// TODO: Document the `context` option and add to types when I know it's something I want to keep.
+
+// If you use the `context` option, you do it at your own risk.
+export default function functionTimeout(function_, {timeout, context = vm.createContext()} = {}) {
 	const wrappedFunction = (...arguments_) => {
-		const context = {
-			function_: () => function_(...arguments_),
-		};
-
+		context.functionToRun = () => function_(...arguments_);
 		script.runInNewContext(context, {timeout});
-
 		return context.returnValue;
 	};
 

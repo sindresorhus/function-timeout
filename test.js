@@ -26,3 +26,11 @@ test('no timeout', t => {
 	const fixtureFunction = (a, b) => [a, b];
 	t.deepEqual(functionTimeout(fixtureFunction)(1, 2), [1, 2]);
 });
+
+test('multiple', t => {
+	const run = functionTimeout((a, b) => [a, b], {timeout: 100});
+	t.deepEqual(run(1, 2), [1, 2]);
+	t.deepEqual(run(1, 3), [1, 3]);
+	t.deepEqual(run(1, 4), [1, 4]);
+	t.deepEqual(run(1, 5), [1, 5]);
+});
