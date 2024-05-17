@@ -31,7 +31,7 @@ try {
 }
 ```
 */
-export default function functionTimeout<T extends Function>(function_: T, options: Options): T; // eslint-disable-line @typescript-eslint/ban-types
+export default function functionTimeout<T extends Function>(function_: T, options?: Options): T; // eslint-disable-line @typescript-eslint/ban-types
 
 /**
 Returns a boolean for whether the given error is a timeout error.
